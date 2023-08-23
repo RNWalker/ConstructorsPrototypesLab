@@ -1,3 +1,5 @@
+const Customer = require("./Customer");
+
 const Dealership = function (name, maximumCars, currentStock){
     this.name = name;
     this.maximumCars = maximumCars;
@@ -12,9 +14,12 @@ Dealership.prototype.getCurrentStock = function(){
 
 //add a car to stock
 
-Dealership.prototype.addCarToStock = function(newCar){
-    this.currentStock.push(newCar);
+Dealership.prototype.addCarToStock = function(Car){
+    if(this.currentStock.length >= 4){
+        return false
+    } else {this.currentStock.push(Car);
 }
+};
 
 //return an array containing each cars manufacturer
 
@@ -39,5 +44,15 @@ Dealership.prototype.getTotalValueOfCars = function(){
     return this.currentStock.reduce((totalValue, car) => totalValue + car.price, 0);
 }
 
+//can sell a car and remove from currentStock
+
+Dealership.prototype.sellCar = function(customer, car){
+    if(customer.buyCar(car) == true){
+        const remainingCars = this.currentStock.filter( currentCar => currentCar !== car);
+        this.currentStock = remainingCars;
+        return true;
+    } 
+    else { return false;}
+}
 module.exports = Dealership;
 
