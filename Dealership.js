@@ -34,9 +34,28 @@ Dealership.prototype.returnManufacturers = function (){
 
 //find all the cars from a given manufacturer
 
-Dealership.prototype.returnByManufacturer = function (manufacturer){
+// Dealership.prototype.returnByManufacturer = function (manufacturer){
+//     return this.currentStock.filter(car => car.manufacturer === manufacturer);
+// }
+
+
+const searchByManufacturer = (criteria) => {
     return this.currentStock.filter(car => car.manufacturer === manufacturer);
 }
+
+const searchByPrice = (criteria) => {
+    return this.currentStock.filter(car => car.price === price);
+}
+
+const searchByEngineType = (criteria) => {
+    return this.currentStock.filter(car => car.engineType === engineType);
+}
+
+
+const customerSearch = (searchValue, callback) => { 
+    callback(searchValue); 
+};
+
 
 //can find total value of cars
 
