@@ -1,6 +1,6 @@
 const Customer = require("./Customer");
 
-const Dealership = function (name, maximumCars, currentStock){
+const Dealership = function (name, maximumCars){
     this.name = name;
     this.maximumCars = maximumCars;
     this.currentStock = [];
@@ -15,7 +15,7 @@ Dealership.prototype.getCurrentStock = function(){
 //add a car to stock
 
 Dealership.prototype.addCarToStock = function(Car){
-    if(this.currentStock.length >= 4){
+    if(this.currentStock.length >= this.maximumCars){
         return false
     } else {this.currentStock.push(Car);
 }
@@ -55,6 +55,10 @@ const searchByEngineType = (criteria) => {
 const customerSearch = (searchValue, callback) => { 
     callback(searchValue); 
 };
+
+Dealership.prototype.searchCars = function (query, property){
+    return this.currentStock.filter(( car) => car[property] === query);
+}
 
 
 //can find total value of cars

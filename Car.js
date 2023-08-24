@@ -5,6 +5,9 @@ const Car = function(manufacturer, price, engineType){
 }
 
 //getters
+//properties are not private, so did not need getters and setters! 
+//put an underscore infront of something you want to be private
+// e.g. this._manufacturer;
 
 Car.prototype.getManufacturer = function(){return this.manufacturer;}
 Car.prototype.getPrice = function(){return this.price;}

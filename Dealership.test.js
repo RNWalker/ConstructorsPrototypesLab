@@ -2,6 +2,7 @@ const Dealership = require("./Dealership");
 const Car = require("./Car");
 const Customer = require("./Customer");
 
+//should do a before each here
 const dealership = new Dealership("Out Of Budget Cars", 4);
 const car1 = new Car("Rolls Royce", 400, "vroomvroom");
 const car2 = new Car("Lamborghini", 100, "lambovroom");

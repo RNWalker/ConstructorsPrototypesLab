@@ -1,6 +1,11 @@
 const Car = require("./Car");
 
-const car = new Car("Rolls Royce", "expensiveAF", "vroomvroom");
+//const car = new Car("Rolls Royce", "expensiveAF", "vroomvroom");
+
+let car;
+beforeEach(() => {
+  car = new Car("Rolls Royce", "expensiveAF", "vroomvroom");
+});
 
 describe('getters for car module', () => {
 
